@@ -1,2 +1,2 @@
-# My-Wine-Celler-FrontEnd
+# My-Wine-Celler
 My Wine Celler
