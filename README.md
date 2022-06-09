@@ -1,2 +1,2 @@
-# 🍷 My Wine Cellar
+# My Wine Cellar
 My Wine Cellar
