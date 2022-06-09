@@ -1,2 +1,2 @@
-# My-Wine-Celler
-My Wine Celler
+# My-Wine-Cellar
+My Wine Cellar
