@@ -9,6 +9,12 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: 'https://kit.fontawesome.com/0ad7ed00eb.js',
+        crossorigin: 'anonymous',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -31,7 +37,7 @@ export default {
   ],
 
   styleResources: {
-    scss: [],
+    scss: ['./assets/styles/scss/main.scss'],
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
