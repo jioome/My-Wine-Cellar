@@ -1,0 +1,13 @@
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+        transform: scale(1.2);
+    }
+}
+
+.w-container {
+    height: 100%;
+}
