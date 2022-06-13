@@ -1,3 +1,4 @@
+const baseURL = process.env.BASE_URL || 'http://localhost:8000/api'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -61,6 +62,37 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
+    },
+  },
+  middleware: ['auth'],
+  auth: {
+    strategies: {
+      google: {
+        clientId: '<you client id>',
+        codeChallengeMethod: '',
+        responseType: 'code',
+        endpoints: {
+          token: 'http://localhost:8000/user/google/', // somm backend url to resolve your auth with google and give you the token back
+          userInfo: 'http://localhost:8000/auth/user/', // the endpoint to get the user info after you recived the token
+        },
+      },
+      kakao: {
+        scheme: 'oauth2',
+        clientId: process.env.KAKAO_CLIENT_ID,
+        codeChallengeMethod: '',
+        responseType: 'code',
+        // grantType: 'authorization_code',
+        endpoints: {
+          authorization: 'https://kauth.kakao.com/oauth/authorize',
+          token: `${baseURL}`,
+          userInfo: `${baseURL}`,
+        },
+        token: {
+          property: 'access_token',
+          type: 'Bearer',
+          maxAge: 18000,
+        },
+      },
     },
   },
 
