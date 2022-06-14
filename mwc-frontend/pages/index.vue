@@ -38,8 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 .main-header {
-  height: 10%;
-  
   &-items {
     width: 80%;
     margin: auto;

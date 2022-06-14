@@ -1,8 +1,8 @@
 <template>
     <ul class="navbar-icons">
-        <li><button class="is-size-2"><i class="fa-solid fa-eye"></i></button></li>
-        <li><button class="is-size-2"><i class="fa-solid fa-house"></i></button></li>
-        <li><button class="is-size-2"><i class="fa-solid fa-plus"></i></button></li>
+        <li><nuxt-link :to="{name: 'wine-board'}" class="is-size-2"><i class="fa-solid fa-eye"></i></nuxt-link></li>
+        <li><nuxt-link :to="{name: 'index'}" class="is-size-2"><i class="fa-solid fa-house"></i></nuxt-link></li>
+        <li><nuxt-link :to="{name: 'wine-board'}" class="is-size-2"><i class="fa-solid fa-plus"></i></nuxt-link></li>
     </ul>
 </template>
 
