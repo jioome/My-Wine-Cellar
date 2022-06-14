@@ -9,13 +9,13 @@
     </div>
     <div class="main-content">
       <section class="my-cellar">
-        <div v-for="item in myCellarData" :key="item">
+        <div v-for="(item,idx) in myCellarData" :key="idx">
           <h1>{{item.title}}</h1>
           <span>{{item.content}}</span>
         </div>
       </section>
       <section class="guest-book">
-        <div v-for="item in guestBook" :key="item">
+        <div v-for="(item,idx) in guestBook" :key="idx">
           <h1>{{item.user}}</h1>
           <span>{{item.content}}</span>
         </div>
