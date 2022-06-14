@@ -19,7 +19,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/styles/scss/buefy.scss'],
+  css: [
+    '@/assets/styles/scss/buefy.scss',
+    'quill/dist/quill.snow.css',
+    'quill/dist/quill.bubble.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
