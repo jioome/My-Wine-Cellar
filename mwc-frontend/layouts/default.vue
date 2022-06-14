@@ -3,9 +3,9 @@
     <main>
       <Nuxt />
     </main>
-    <div class="mobile-navbar">
+    <footer class="mobile-navbar">
       <Navbar />
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -19,11 +19,13 @@
 .mobile-layout {
   max-width: 768px;
   margin: auto;
-  min-height: 100vh;
   background: #a0a0a0;
+  padding-bottom: 6rem;
+  height: 100%;
 }
 main {
-  height: 90vh;
+  overflow: auto;
+  height: 100%;
 }
 .mobile-navbar {
   width: 414px;
@@ -31,9 +33,9 @@ main {
   display: flex;
   align-items: center;
   background: #fff;
-  height: 10vh;
   position: fixed;
   bottom: 0;
   z-index: 1000;
+  height: 6rem;
 }
 </style>
