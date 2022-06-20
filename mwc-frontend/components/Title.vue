@@ -3,7 +3,7 @@
         <div class="main-header-items">
         <button class="is-size-3" @click="goBack"><i class="fa-solid fa-arrow-rotate-left"></i></button>
         <span class="is-size-4">{{mainTitle}}</span>
-        <button class="is-size-3"><i class="fa-solid fa-user"></i></button>
+        <NuxtLink :to="{name: 'my-page'}" class="is-size-3"><i class="fa-solid fa-user"></i></NuxtLink>
         </div>
         <div class="main-header-line mt-4"></div>
     </div>

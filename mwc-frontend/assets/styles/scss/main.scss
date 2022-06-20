@@ -14,6 +14,7 @@ button {
 
 .w-container {
     height: 100%;
+    overflow: auto;
 }
 
 .main-header {
@@ -22,4 +23,28 @@ button {
 
 .main-content {
     height: 90%;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.3s;
+}
+.layout-enter,
+.layout-leave-active {
+  opacity: 0;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
