@@ -3,7 +3,7 @@
     <div class="main-header p-4">
       <div class="main-header-items">
         <span class="is-size-4">다츠님의 와인 셀러</span>
-        <button class="is-size-3"><i class="fa-solid fa-user"></i></button>
+        <NuxtLink :to="{name: 'my-page'}" class="is-size-3"><i class="fa-solid fa-user"></i></NuxtLink>
       </div>
       <div class="main-header-line mt-4"></div>
     </div>

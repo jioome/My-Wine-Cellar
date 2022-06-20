@@ -1,11 +1,9 @@
 <template>
   <div class="mobile-layout">
-    <main>
       <Nuxt />
-    </main>
-    <footer class="mobile-navbar">
+    <nav class="mobile-navbar">
       <Navbar />
-    </footer>
+    </nav>
   </div>
 </template>
 
@@ -21,10 +19,6 @@
   margin: auto;
   background: #a0a0a0;
   padding-bottom: 6rem;
-  height: 100%;
-}
-main {
-  overflow: auto;
   height: 100%;
 }
 .mobile-navbar {
