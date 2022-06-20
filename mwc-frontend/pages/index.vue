@@ -1,24 +1,28 @@
 <template>
   <div class="w-container">
     <div class="main-header p-4">
-      <div class="main-header-items">
+      <div class="main-header-items pb-3">
         <span class="is-size-4">다츠님의 와인 셀러</span>
         <NuxtLink :to="{name: 'my-page'}" class="is-size-3"><i class="fa-solid fa-user"></i></NuxtLink>
       </div>
-      <div class="main-header-line mt-4"></div>
+      <div class="main-header-line"></div>
     </div>
-    <div class="main-content">
-      <section class="my-cellar">
-        <div v-for="(item,idx) in myCellarData" :key="idx">
+    <div class="main-content p-4">
+      <div class="more pt-3 has-text-right"><NuxtLink to="">더보기</NuxtLink></div>
+      <section class="my-cellar is-flex is-flex-wrap-wrap">
+        <NuxtLink v-for="(item,idx) in myCellarData" :key="idx" to="" class="wine-item has-text-centered">
+        <img src="~static/img/wine.jpeg" alt="wine-image">
           <h1>{{item.title}}</h1>
-          <span>{{item.content}}</span>
-        </div>
+        </Nuxtlink>
       </section>
-      <section class="guest-book">
-        <div v-for="(item,idx) in guestBook" :key="idx">
+      <div class="more pt-4 has-text-right"><NuxtLink to="">더보기</NuxtLink></div>
+      <section class="pb-3">
+      <div class="guest-book is-flex is-flex-wrap-wrap is-justify-content-space-evenly">
+        <NuxtLink v-for="(item,idx) in guestBook" :key="idx" to="" class="book-item mr-3">
           <h1>{{item.user}}</h1>
           <span>{{item.content}}</span>
-        </div>
+        </NuxtLink>
+      </div>
       </section>
     </div>
   </div>
@@ -29,8 +33,8 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      myCellarData: [{title: '레드와인', content: "이거 은근 맛있어요."},{title: '화이트와인', content: "이것도 은근 맛있어요."}],
-      guestBook: [{user: "미닛", content: "안녕하세요"}, {user: "나미", content: "반가워요"}]
+      myCellarData: [{title: '레드와인', content: "이거 은근 맛있어요."},{title: '화이트와인', content: "이것도 은근 맛있어요."},{title: '그냥와인', content: "이것도 은근 맛있어요."},{title: '그냥와인', content: "이것도 은근 맛있어요."}],
+      guestBook: [{user: "미닛", content: "안녕하세요"}, {user: "나미", content: "반가워요"}, {user: "나미", content: "반가워요"}, {user: "나미", content: "반가워요"}, {user: "나미", content: "반가워요"}, {user: "나미", content: "반가워요"}]
     }
   }
 }
@@ -51,7 +55,7 @@ export default {
   }
   &-line {
     width: 80%;
-    height: 3px;
+    height: 2px;
     background: black;
     margin: auto;
   }
@@ -59,10 +63,28 @@ export default {
 .main-content {
   height: 90%;
   .my-cellar {
-    height: 50%;
+    border: 2px solid $base-color;
+    border-radius: 6px;
   }
   .guest-book {
-    height: 50%;
+    height: 15rem;
+    padding: 1rem;
+    margin:auto;
+    background-image: url('~static/img/wall.jpg');
   }
+}
+
+.wine-item {
+  width: 30%;
+  margin: 0.3rem;
+}
+
+.book-item {
+  background-color: #e9dd57;
+  max-width: 10rem;
+  width: 26%;
+  height: 6rem;
+  padding: 0.3rem;
+  overflow: hidden;
 }
 </style>

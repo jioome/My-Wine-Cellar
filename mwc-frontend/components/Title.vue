@@ -41,7 +41,7 @@
   }
   &-line {
     width: 80%;
-    height: 3px;
+    height: 2px;
     background: black;
     margin: auto;
   }
