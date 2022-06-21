@@ -2,6 +2,7 @@ package com.example.mwcbackend.domain;
 
 import com.example.mwcbackend.oauth.BaseTimeEntity;
 import com.example.mwcbackend.oauth.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,16 +16,17 @@ import java.io.Serializable;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GuestBook extends BaseTimeEntity implements Serializable {
+public class WineIcon extends BaseTimeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "guestbook_id")
-    private Long guestbookId = null;
+    @Column(name = "wine_id")
+    private Long wineId = null;
 
-    // Guestbook Entity는 관계의 주인이기 때문에, FK 키 포함
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "img_address")
+    private String imgAddress;
 
-    private String content;
+    private Integer bubble;
+    private Integer shape;
+    private Integer color;
+
 }
