@@ -2,14 +2,13 @@
   <div class="w-container">
     <Title :main-title="mainTitle" />
     <div class="main-content">
-      <section class="">
+      <section class="quill">
         <client-only>
           <quill-editor
             ref="editor"
             v-model.lazy="editedContent"
             :options="editorOption"
             class="editor--border relative"
-            @change="debounceTextChange"
           />
         </client-only>
       </section>
@@ -21,7 +20,7 @@
 </template>
 
 <script>
-import { debounce } from 'vue-debounce'
+/* import { debounce } from 'vue-debounce' */
 export default {
   data() {
     return {
@@ -53,9 +52,9 @@ export default {
     }
   },
   methods: {
-    debounceTextChange: debounce(function () {
+    /* debounceTextChange: debounce(function () {
       this.$emit('text-change', this.editedContent)
-    }, 3000),
+    }, 3000), */
     upload() {
       this.$router.push({ name: 'index' })
     },
@@ -69,6 +68,10 @@ export default {
   section {
     height: 90%;
   }
+}
+.quill {
+  width: 90%;
+  margin: auto;
 }
 .quill-editor {
   height: 80%;
