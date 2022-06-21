@@ -2,7 +2,7 @@
   <div class="w-container">
     <Title :main-title="mainTitle" />
     <div class="main-content">
-      <section>
+      <section class="">
         <client-only>
           <quill-editor
             ref="editor"
@@ -13,9 +13,9 @@
           />
         </client-only>
       </section>
-			<div class="mt-5 has-text-right">
-				<button class="upload-button is-size-4" @click="upload">완료</button>
-			</div>
+      <div class="pt-1 has-text-right">
+        <button class="upload-button is-size-5" @click="upload">완료</button>
+      </div>
     </div>
   </div>
 </template>
@@ -56,28 +56,35 @@ export default {
     debounceTextChange: debounce(function () {
       this.$emit('text-change', this.editedContent)
     }, 3000),
-		upload() {
-			console.log(this.editedContent)
-			this.$router.push({name: 'index'});
-		}
+    upload() {
+      this.$router.push({ name: 'index' })
+    },
   },
 }
 </script>
 <style lang="scss" scoped>
 .main-content {
-	padding: 1rem;
+  padding: 1rem;
 
-	section {
-		height: 90%;
-		background: #fff;
-	}
+  section {
+    height: 90%;
+  }
 }
 .quill-editor {
-	height: 85%;
+  height: 80%;
+  background: $white-color;
+
+  &::v-deep .ql-container {
+    background: $white-color;
+    max-height: 30rem;
+  }
 }
+
 .upload-button {
-	background: cornflowerblue;
-	color: white;
-	border-radius: 8px;
+  color: $white-color;
+  width: 5rem;
+  height: 2.5rem;
+  background: $base-color-light;
+  border-radius: 8px;
 }
 </style>
