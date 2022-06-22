@@ -20,7 +20,6 @@
 </template>
 
 <script>
-/* import { debounce } from 'vue-debounce' */
 export default {
   data() {
     return {
@@ -52,9 +51,6 @@ export default {
     }
   },
   methods: {
-    /* debounceTextChange: debounce(function () {
-      this.$emit('text-change', this.editedContent)
-    }, 3000), */
     upload() {
       this.$router.push({ name: 'index' })
     },
@@ -74,7 +70,7 @@ export default {
   margin: auto;
 }
 .quill-editor {
-  height: 80%;
+  height: 75%;
   background: $white-color;
 
   &::v-deep .ql-container {

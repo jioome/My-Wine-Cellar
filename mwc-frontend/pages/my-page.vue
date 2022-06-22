@@ -31,7 +31,7 @@
         <div class="profile__info">
           <div v-if="editMode" class="is-flex is-align-items-center"><b-field class="pt-3">
             <b-input v-model="userInfo.name"></b-input>
-        </b-field><button class="is-size-5 has-text-white has-background-success ml-2" @click="editName(userInfo.name)">확인</button><button class="is-size-5 has-text-white has-background-danger ml-2" @click="editMode=false">취소</button></div>
+        </b-field><button class="is-size-7 has-text-white has-background-success ml-2" @click="editName(userInfo.name)">확인</button><button class="is-size-7 has-text-white has-background-danger ml-2" @click="editMode=false">취소</button></div>
           <div v-else class="is-flex is-align-items-center"><span class="profile__name">{{userInfo.name}}</span><button class="is-size-5 has-text-primary" @click="editMode=true"><i class="fa-solid fa-pen-to-square"></i></button></div>
           <p class="profile__email">{{userInfo.email}}</p>
         </div>
@@ -114,11 +114,11 @@ export default {
     }
   }
   &__info {
-    width: 65%;
-    margin-left: 15%;
+    width: 70%;
+    padding-left: 10%;
 
     button {
-      width: 4rem;
+      width: 20%;
       height:2.5rem;
       border-radius: 4px;
     }
