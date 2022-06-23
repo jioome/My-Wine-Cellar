@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="friend p-6 is-size-5 has-text-weight-bold has-text-right">
-        <span>친구: {{userInfo.friend}}명</span>
+        <NuxtLink :to="{name: 'friends-list'}"><span>친구: {{userInfo.friend}}명</span></NuxtLink>
       </div>
       <div class="pb-4 has-text-weight-semibold pl-6"><span>나의 뱃지: {{userInfo.badges.length}}개</span></div>
       <div class="badges is-flex is-justify-content-space-evenly is-flex-wrap-wrap">
