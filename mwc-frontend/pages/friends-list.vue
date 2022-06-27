@@ -3,7 +3,9 @@
     <Title :main-title="mainTitle" />
     <div class="main-content">
       <div class="friend-list">
-        <div class="list-title columns has-text-weight-bold is-mobile is-centered">
+        <div
+          class="friend-list__title columns has-text-weight-bold is-mobile is-centered"
+        >
           <div class="column is-3">대표 뱃지</div>
           <div class="column is-6">친구 이름</div>
           <div class="column is-3">와인 갯수</div>
@@ -11,12 +13,12 @@
         <NuxtLink
           v-for="item in list_items"
           :key="item"
-          :to="{name:'/'}"
-          class="list-item columns is-mobile is-centered"
+          :to="{ name: '/' }"
+          class="friend-list__item columns is-mobile is-centered"
         >
-          <div class="column is-3">{{item.badge}}</div>
-          <div class="column is-6">{{item.name}}</div>
-<div class="column is-3">와인: {{item.wine_num}}병</div>
+          <div class="column is-3">{{ item.badge }}</div>
+          <div class="column is-6">{{ item.name }}</div>
+          <div class="column is-3">와인: {{ item.wine_num }}병</div>
         </NuxtLink>
       </div>
     </div>
@@ -42,19 +44,20 @@ export default {
 
 <style lang="scss" scoped>
 .friend-list {
-    width: 74%;
-    margin: auto;
-    padding-top: 6rem;
-}
+  width: 74%;
+  margin: auto;
+  padding-top: 6rem;
 
-.list-title {
+  &__title {
     border-bottom: 2px solid $black-color;
+  }
+
+  &__item {
+  border-bottom: 1px solid $gray-color;
+  &:hover {
+    background: $gray-color-light;
+  }
+  }
 }
 
-.list-item {
-    border-bottom: 1px solid $gray-color;
-        &:hover {
-        background: $gray-color-light;
-    }
-}
 </style>
