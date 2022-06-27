@@ -29,6 +29,7 @@ export default {
   plugins: [
     { src: '~plugins/vue-quill-editor.js', ssr: false },
     { src: '~/plugins/infiniteloading', ssr: false },
+    '~/plugins/lottie-vue-player.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,7 +43,10 @@ export default {
   ],
 
   styleResources: {
-    scss: ['./assets/styles/scss/main.scss', './assets/styles/scss/custom.scss'],
+    scss: [
+      './assets/styles/scss/main.scss',
+      './assets/styles/scss/custom.scss',
+    ],
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

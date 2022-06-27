@@ -1,16 +1,12 @@
 <template>
   <div class="w-container">
     <div class="main-header p-4">
-      <div class="main-header-items">
+      <div class="main-header__items">
         <button class="is-size-3" @click="goBack">
           <i class="fa-solid fa-arrow-rotate-left"></i>
         </button>
-        <span class="is-size-4">마이 페이지</span>
-        <b-dropdown
-          position="is-bottom-left"
-          append-to-body
-          aria-role="menu"
-        >
+        <span class="has-text-weight-bold is-size-4">마이 페이지</span>
+        <b-dropdown position="is-bottom-left" append-to-body aria-role="menu">
           <template #trigger>
             <a class="navbar-item has-text-primary" role="button">
               <i class="mt-1 is-size-3 fa-solid fa-gear"></i>
@@ -21,7 +17,7 @@
           </b-dropdown-item>
         </b-dropdown>
       </div>
-      <div class="main-header-line mt-4"></div>
+      <div class="main-header__line mt-4"></div>
     </div>
     <div class="main-content">
       <div class="profile">
@@ -29,23 +25,53 @@
           <img src="~/static/img/profile-image.png" alt="profile-image" />
         </div>
         <div class="profile__info">
-          <div v-if="editMode" class="is-flex is-align-items-center"><b-field class="pt-3">
-            <b-input v-model="userInfo.name"></b-input>
-        </b-field><button class="is-size-7 has-text-white has-background-success ml-2" @click="editName(userInfo.name)">확인</button><button class="is-size-7 has-text-white has-background-danger ml-2" @click="editMode=false">취소</button></div>
-          <div v-else class="is-flex is-align-items-center"><span class="profile__name">{{userInfo.name}}</span><button class="is-size-5 has-text-primary" @click="editMode=true"><i class="fa-solid fa-pen-to-square"></i></button></div>
-          <p class="profile__email">{{userInfo.email}}</p>
+          <div v-if="editMode" class="is-flex is-align-items-center">
+            <b-field class="pt-3">
+              <b-input v-model="userInfo.name"></b-input> </b-field
+            ><button
+              class="is-size-7 has-text-white has-background-success ml-2"
+              @click="editName(userInfo.name)"
+            >
+              확인</button
+            ><button
+              class="is-size-7 has-text-white has-background-danger ml-2"
+              @click="editMode = false"
+            >
+              취소
+            </button>
+          </div>
+          <div v-else class="is-flex is-align-items-center">
+            <span class="profile__name">{{ userInfo.name }}</span
+            ><button
+              class="is-size-5 has-text-primary"
+              @click="editMode = true"
+            >
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </div>
+          <p class="profile__email">{{ userInfo.email }}</p>
         </div>
       </div>
       <div class="friend p-6 is-size-5 has-text-weight-bold has-text-right">
-        <NuxtLink :to="{name: 'friends-list'}"><span>친구: {{userInfo.friend}}명</span></NuxtLink>
+        <NuxtLink :to="{ name: 'friends-list' }"
+          ><span>친구: {{ userInfo.friend }}명</span></NuxtLink
+        >
       </div>
-      <div class="pb-4 has-text-weight-semibold pl-6"><span>나의 뱃지: {{userInfo.badges.length}}개</span></div>
-      <div class="badges is-flex is-justify-content-space-evenly is-flex-wrap-wrap">
-        <div v-for="item in userInfo.badges" :key="item" class="has-text-centered badge">
-          <div class="badge-img">
+      <div class="pb-4 has-text-weight-semibold pl-6">
+        <span>나의 뱃지: {{ userInfo.badges.length }}개</span>
+      </div>
+      <div
+        class="badges is-flex is-justify-content-space-evenly is-flex-wrap-wrap"
+      >
+        <div
+          v-for="item in userInfo.badges"
+          :key="item"
+          class="has-text-centered badge"
+        >
+          <div class="badge__img">
             <img src="~static/img/badge.png" alt="badge" />
           </div>
-          <span class="has-text-weight-bold">{{item.name}}</span>
+          <span class="has-text-weight-bold">{{ item.name }}</span>
         </div>
       </div>
     </div>
@@ -56,8 +82,22 @@
 export default {
   data() {
     return {
-      userInfo: {name: "다츠", friend: 15, email: "jwun95@naver.com", badges: [{img: '~static/img/badge.png', name: "와인 킬러"},{img: '~static/img/badge.png', name: "와인 킬러"},{img: '~static/img/badge.png', name: "와인 킬러"},{img: '~static/img/badge.png', name: "와인 킬러"},{img: '~static/img/badge.png', name: "와인 킬러"},{img: '~static/img/badge.png', name: "와인 킬러"},{img: '~static/img/badge.png', name: "와인 킬러"},{img: '~static/img/badge.png', name: "와인 킬러"}]},
-      editMode: false
+      userInfo: {
+        name: '다츠',
+        friend: 15,
+        email: 'jwun95@naver.com',
+        badges: [
+          { img: '~static/img/badge.png', name: '와인 킬러' },
+          { img: '~static/img/badge.png', name: '와인 킬러' },
+          { img: '~static/img/badge.png', name: '와인 킬러' },
+          { img: '~static/img/badge.png', name: '와인 킬러' },
+          { img: '~static/img/badge.png', name: '와인 킬러' },
+          { img: '~static/img/badge.png', name: '와인 킬러' },
+          { img: '~static/img/badge.png', name: '와인 킬러' },
+          { img: '~static/img/badge.png', name: '와인 킬러' },
+        ],
+      },
+      editMode: false,
     }
   },
   methods: {
@@ -65,27 +105,23 @@ export default {
       this.$router.go(-1)
     },
     editName(name) {
-      this.userInfo.name = name;
-      this.editMode = false;
-    }
+      this.userInfo.name = name
+      this.editMode = false
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .main-header {
-  &-items {
+  &__items {
     width: 80%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    span {
-      font-weight: bold;
-    }
   }
-  &-line {
+  &__line {
     width: 80%;
     height: 3px;
     background: black;
@@ -119,7 +155,7 @@ export default {
 
     button {
       width: 20%;
-      height:2.5rem;
+      height: 2.5rem;
       border-radius: 4px;
     }
   }
@@ -146,10 +182,10 @@ export default {
   width: 30%;
   align-items: center;
   flex-direction: column;
-}
 
-.badge-img {
-  margin: auto;
+  &__img {
+    margin: auto;
   width: 40%;
+  }
 }
 </style>
