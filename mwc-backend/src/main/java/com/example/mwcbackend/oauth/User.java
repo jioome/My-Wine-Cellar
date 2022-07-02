@@ -30,6 +30,7 @@ public class User extends BaseTimeEntity implements Serializable{
 
     private String picture;
 
+
     private String status;
 
     private String follower;
