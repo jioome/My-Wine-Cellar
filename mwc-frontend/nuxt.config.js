@@ -1,3 +1,4 @@
+const baseURL = process.env.BASE_URL || 'http://localhost:8000/api'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -9,15 +10,26 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: 'https://kit.fontawesome.com/0ad7ed00eb.js',
+        crossorigin: 'anonymous',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/styles/scss/buefy.scss'],
+  css: [
+    '@/assets/styles/scss/buefy.scss',
+    'quill/dist/quill.snow.css',
+    'quill/dist/quill.bubble.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~plugins/vue-quill-editor.js', ssr: false },
     { src: '~/plugins/infiniteloading', ssr: false },
+    '~/plugins/lottie-vue-player.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -31,7 +43,10 @@ export default {
   ],
 
   styleResources: {
-    scss: [],
+    scss: [
+      './assets/styles/scss/main.scss',
+      './assets/styles/scss/custom.scss',
+    ],
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -55,6 +70,37 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
+    },
+  },
+  middleware: ['auth'],
+  auth: {
+    strategies: {
+      google: {
+        clientId: '<you client id>',
+        codeChallengeMethod: '',
+        responseType: 'code',
+        endpoints: {
+          token: 'http://localhost:8000/user/google/', // somm backend url to resolve your auth with google and give you the token back
+          userInfo: 'http://localhost:8000/auth/user/', // the endpoint to get the user info after you recived the token
+        },
+      },
+      kakao: {
+        scheme: 'oauth2',
+        clientId: process.env.KAKAO_CLIENT_ID,
+        codeChallengeMethod: '',
+        responseType: 'code',
+        // grantType: 'authorization_code',
+        endpoints: {
+          authorization: 'https://kauth.kakao.com/oauth/authorize',
+          token: `${baseURL}`,
+          userInfo: `${baseURL}`,
+        },
+        token: {
+          property: 'access_token',
+          type: 'Bearer',
+          maxAge: 18000,
+        },
+      },
     },
   },
 
